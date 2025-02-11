@@ -22,9 +22,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pyyaml
 
-      # Step 4: List directory contents (for debugging)
-      - name: List files
-        run: ls -R
+      # Step 4: List files to debug path issue
+      - name: List directory contents
+        run: |
+          ls -R /home/runner/work/podcast-test/
 
       # Step 5: Run Feed Generator
       - name: Run Feed Generator
@@ -39,5 +40,3 @@ jobs:
           git add .
           git commit -m "Modified Feed"
           git push
-
-
