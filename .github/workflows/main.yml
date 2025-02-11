@@ -12,9 +12,9 @@ jobs:
 
       # Step 2: Setup Python
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.13.0'
 
       # Step 3: Install Dependencies
       - name: Install Dependencies
@@ -22,12 +22,16 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pyyaml
 
-      # Step 4: Run Feed Generator
+      # Step 4: List directory contents (for debugging)
+      - name: List files
+        run: ls -R
+
+      # Step 5: Run Feed Generator
       - name: Run Feed Generator
         run: |
           python podcast-test/feed.py  # Adjust path based on your structure
 
-      # Step 5: Push Repo (if necessary)
+      # Step 6: Push Repo (if necessary)
       - name: Push Repo
         run: |
           git config user.name github-actions
@@ -35,4 +39,5 @@ jobs:
           git add .
           git commit -m "Modified Feed"
           git push
+
 
