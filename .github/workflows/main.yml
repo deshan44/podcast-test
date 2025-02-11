@@ -12,9 +12,9 @@ jobs:
 
       # Step 2: Setup Python
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.13.0'
+          python-version: '3.10'
 
       # Step 3: Install Dependencies
       - name: Install Dependencies
